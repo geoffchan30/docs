@@ -9,16 +9,19 @@ aliases:
 
 Using the Armory Operator, you can:
 
-- Manage Armory with `kubectl` like other applications.
-- Expose Armory via `LoadBalancer` or `Ingress` (optional)
-- Keep secrets separate from your config. Store your config in `git` and have an easy Gitops workflow.
-- Validate your configuration before applying it (with webhook validation).
-- Store Spinnaker secrets in [Kubernetes secrets](https://github.com/armory/spinnaker-operator/blob/master/doc/managing-spinnaker.md#secrets-in-kubernetes-secrets).
+- Deploy any version of Armory.
+- Validate your configuration before applying it by using Kubernetes' webhook validation.
+- Manage Armory with `kubectl`.
+- Expose Armory via `LoadBalancer` or `Ingress` (optional).
+- Keep secrets separate from your config. Store your config in `git` and use an easy Gitops workflow.
+- Store Armory secrets in [Kubernetes secrets](https://github.com/armory/spinnaker-operator/blob/master/doc/managing-spinnaker.md#secrets-in-kubernetes-secrets).
 - Gain total control over Armory manifests with [`kustomize` style patching](https://github.com/armory/spinnaker-operator/blob/master/doc/options.md#speckustomize)
-- Define Kubernetes accounts in `SpinnakerAccount` objects and store kubeconfig inline, in Kubernetes secrets, in s3, or GCS **(Experimental)**.
+- Define Kubernetes accounts in `SpinnakerAccount` objects and store kubeconfig inline, in Kubernetes secrets, in S3, or GCS **(Experimental)**.
 - Deploy Armory in an Istio controlled cluster **(Experimental)**
 
-> We refer here to the Armory Operator, which installs Armory. The open source operator installs open source Spinnaker<sup>TM</sup> and is found [here](https://github.com/armory/spinnaker-operator).
+## Armory Operator versus Spinnaker Operator for Kubernetes
+
+The Operator has both proprietary and open source versions. The Armory Operator installs Armory, and the [Spinnaker<sup>TM</sup> Operator for Kubernetes](https://github.com/armory/spinnaker-operator) installs open source  Spinnaker.
 
 ## Requirements
 

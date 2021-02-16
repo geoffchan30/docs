@@ -2,7 +2,7 @@
 title: Armory Platform Compatibility Matrix
 linkTitle: Armory Platform Compatibility
 weight: 100
-description: "Information about support and compatibility for the Armory Platform."
+description: "Information about support and compatibility for the Armory Enterprise Platform for Spinnaker."
 ---
 
 <!-- If you don't want to make markdown tables manually, use something like https://www.tablesgenerator.com/markdown_tables#
@@ -16,21 +16,27 @@ This page describes the features and capabilities that Armory supports. Note tha
 <!-- Copy and paste the below badges that apply to your area -->
 **Feature status** describes what state the feature is in and where you should install it. For more information, see [Release Definitions]({{< ref "release-definitions" >}}). You can also click on the feature status badge directly.
 
-[![Generally available](/images/ga.svg)]({{< ref "release-definitions#ga" >}}) The feature as a whole is generally available. There may be newer extended functionality that is in a different state.
+- [![Generally available](/images/ga.svg)]({{< ref "release-definitions#ga" >}}) The feature as a whole is generally available. There may be newer extended functionality that is in a different state.
 
-[![Early Access](/images/ea.svg)]({{< ref "release-definitions#early-release">}}) The feature is in Early Access.
+- [![Early Access](/images/ea.svg)]({{< ref "release-definitions#early-release">}}) The feature is in Early Access.
 
-[![Experiment](/images/exp.svg)]({{< ref "release-definitions#experiment">}}) The feature is an Experiment.
+- [![Experiment](/images/exp.svg)]({{< ref "release-definitions#experiment">}}) The feature is an Experiment.
 
 **Enterprise availablility**
 
-![OSS](/images/oss.svg) The feature or parts of it are available in Open Source Spinnaker.
+- ![OSS](/images/oss.svg) The feature or parts of it are available in Open Source Spinnaker.
 
-![Armory](/images/armory.svg) The feature or parts of it are available only as part of the Armory Platform.
+- ![Armory](/images/armory.svg) The feature or parts of it are available only as part of the Armory Platform.
 
 **Versions**
 
 **All supported versions** for the Armory version refers to the current minor release and the two previous minor releases. For example, if the current version is 2.21.x, all supported versions include 2.19.x, 2.20.x, and 2.21.x. For third-party software, "all supported versions" refers to actively maintained versions by the provider.
+
+**Distributions**
+
+- **Managed** refers to deployments where Armory operates the Armory Enterprise Platform for Spinnaker within your infrastructure.
+
+- **Self-hosted** refers to deployments of the Armory Enterprise Platform for Spinnaker that you operate yourself within your infrastructure.
 
 ## Application metrics for Canary Analysis
 
@@ -40,15 +46,15 @@ Application metrics can be ingested by Kayenta to perform Canary Analysis or Aut
 
 The following table lists supported app metric providers:
 
-| Provider       | Version                | ACA | Armory                 | Note |
-|----------------|------------------------|-----|------------------------|------|
-| [AWS Cloudwatch]({{< ref "kayenta-canary-cloudwatch.md" >}}) | All supported versions | Yes | 2.23.1 or later        |      |
-| [Dynatrace]({{< ref "kayenta-canary-dynatrace.md" >}})      | All supported versions | Yes | 2.23.0 or later        |      |
-| Graphite       | All supported versions | Yes | All supported versions |      |
-| New Relic      | All supported versions | Yes | All supported versions |      |
-| Prometheus     | All supported versions | Yes | All supported versions | Authentication using a bearer token is supported.     |
-| SignalFx       | All supported versions | Yes | All supported versions |      |
-| Stackdriver    | All supported versions | Yes | All supported versions |      |
+| Provider                                                     | Version                | ACA | Managed                | Self-hosted            | Note                                              |
+|--------------------------------------------------------------|------------------------|-----|------------------------|------------------------|---------------------------------------------------|
+| [AWS Cloudwatch]({{< ref "kayenta-canary-cloudwatch.md" >}}) | All supported versions | Yes | 2.23.1 or later        | 2.23.1 or later        |                                                   |
+| [Dynatrace]({{< ref "kayenta-canary-dynatrace.md" >}})       | All supported versions | Yes | 2.23.0 or later        | 2.23.0 or later        |                                                   |
+| Graphite                                                     | All supported versions | Yes | All supported versions | All supported versions |                                                   |
+| New Relic                                                    | All supported versions | Yes | All supported versions | All supported versions |                                                   |
+| Prometheus                                                   | All supported versions | Yes | All supported versions | All supported versions | Authentication using a bearer token is supported. |
+| SignalFx                                                     | All supported versions | Yes | All supported versions | All supported versions |                                                   |
+| Stackdriver                                                  | All supported versions | Yes | All supported versions | All supported versions |                                                   |
 
 ## Artifacts
 
@@ -58,16 +64,16 @@ Artifacts are  deployable resources.
 
 The following table lists the supported artifact stores:
 
-| Provider                                                          | Armory                 | Notes                                                               |
-| ----------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------- |
-| [Bitbucket](https://spinnaker.io/setup/artifacts/bitbucket/)      | All supported versions |                                                                     |
-| Container registries                                              | All supported versions | Docker Hub, ECR, and GCR                                                                     |
-| [GitHub](https://spinnaker.io/setup/artifacts/github/)            | All supported versions |                                                                     |
-| [Git Repo](https://spinnaker.io/setup/artifacts/gitrepo/)         | All supported versions | GitHub or Bitbucket. Supports using the entire repo as an artifact. |
-| [Google Cloud Storage](https://spinnaker.io/setup/artifacts/gcs/) | All supported versions |                                                                     |
-| [HTTP](https://spinnaker.io/setup/artifacts/http)                 | All supported versions |                                                                     |
-| [Maven](https://spinnaker.io/setup/artifacts/maven/)              | All supported versions |                                                                     |
-| [S3](https://spinnaker.io/setup/artifacts/s3/)                    | All supported versions |                                                                     |
+| Provider                                                          | Managed                | Self-hosted            | Notes                                                               |
+|-------------------------------------------------------------------|------------------------|------------------------|---------------------------------------------------------------------|
+| [Bitbucket](https://spinnaker.io/setup/artifacts/bitbucket/)      | All supported versions | All supported versions |                                                                     |
+| Container registries                                              | All supported versions | All supported versions | Docker Hub, ECR, and GCR                                            |
+| [GitHub](https://spinnaker.io/setup/artifacts/github/)            | All supported versions | All supported versions |                                                                     |
+| [Git Repo](https://spinnaker.io/setup/artifacts/gitrepo/)         | All supported versions | All supported versions | GitHub or Bitbucket. Supports using the entire repo as an artifact. |
+| [Google Cloud Storage](https://spinnaker.io/setup/artifacts/gcs/) | All supported versions | All supported versions |                                                                     |
+| [HTTP](https://spinnaker.io/setup/artifacts/http)                 | All supported versions | All supported versions |                                                                     |
+| [Maven](https://spinnaker.io/setup/artifacts/maven/)              | All supported versions | All supported versions |                                                                     |
+| [S3](https://spinnaker.io/setup/artifacts/s3/)                    | All supported versions | All supported versions |                                                                     |
 
 ## As code solutions
 
@@ -81,25 +87,25 @@ The following table lists the supported artifact stores:
 
 The following table lists the supported version control systems:
 
-| Feature          | Version                     | Armory version         | Notes           |
-| ---------------- | --------------------------- | ---------------------- | --------------- |
-| BitBucket Cloud  |                             | All supported versions |                 |
-| BitBucket Server | Previous two major versions | All supported versions |                 |
-| GitHub           |                             | All supported versions | Hosted or cloud |
+| Feature          | Version                     | Managed               | Self-hosted            | Notes           |
+|------------------|-----------------------------|-----------------------|------------------------|-----------------|
+| BitBucket Cloud  |                             | All supported version | All supported versions |                 |
+| BitBucket Server | Previous two major versions | All supported version | All supported versions |                 |
+| GitHub           |                             | All supported version | All supported versions | Hosted or cloud |
 
 **Features**
 
 The following table lists specific features for Pipelines as Code and their supported versions:
 
-| Feature                                                                                | Armory                 | Notes                                                                 |
-| -------------------------------------------------------------------------------------- | ---------------------- | --------------------------------------------------------------------- |
-| [Fiat service account integration]({{< ref "dinghy-enable#fiat" >}})                   | All supported versions |                                                                       |
-| GitHub status notifications                                                            | All supported versions |                                                                       |
-| [Local modules for development]({{< ref "using-dinghy#local-module-functionality" >}}) | All supported versions |                                                                       |
-| Modules                                                                                | All supported versions | Templatize and re-use pipeline snippets across applications and teams |
-| [Pull Request Validation]({{< ref "dinghy-enable#pull-request-validations" >}})        | 2.21 or later          |                                                                       |
-| [Slack notifications]({{< ref "dinghy-enable#slack-notifications" >}})                 | All supported versions |                                                                       |
-| [Webhook secret validation]({{< ref "using-dinghy#webhook-secret-validation" >}})      | All supported versions |                                                                       |
+| Feature                                                                                | Managed                | Self-hosted            | Notes                                                                 |
+|----------------------------------------------------------------------------------------|------------------------|------------------------|-----------------------------------------------------------------------|
+| [Fiat service account integration]({{< ref "dinghy-enable#fiat" >}})                   | All supported versions | All supported versions |                                                                       |
+| GitHub status notifications                                                            | All supported versions | All supported versions |                                                                       |
+| [Local modules for development]({{< ref "using-dinghy#local-module-functionality" >}}) | All supported versions | All supported versions |                                                                       |
+| Modules                                                                                | All supported versions | All supported versions | Templatize and re-use pipeline snippets across applications and teams |
+| [Pull Request Validation]({{< ref "dinghy-enable#pull-request-validations" >}})        | All supported versions | All supported versions |                                                                       |
+| [Slack notifications]({{< ref "dinghy-enable#slack-notifications" >}})                 | All supported versions | All supported versions |                                                                       |
+| [Webhook secret validation]({{< ref "using-dinghy#webhook-secret-validation" >}})      | All supported versions | All supported versions |                                                                       |
 
 #### ARM CLI
 
@@ -116,11 +122,11 @@ Kubernetes custom resources.
 
 The following table lists the PaCRD features and their supported versions:
 
-| Feature                                             | Armory                         | Notes                                                      |
-| --------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
-| Create, modify, and delete pipeline manifests       | All supported versions         | Working within the same cluster Spinnaker is installed in. |
-| Create, modify, and delete application manifests    | All supported versions         | Working within the same cluster Spinnaker is installed in. |
-| Define all stages supported by Spinnaker and Armory | PaCRD version 0.10.x and later | Validation support does not exist for all stages.          |
+| Feature                                             | Managed                        | Self-hosted                    | Notes                                                      |
+|-----------------------------------------------------|--------------------------------|--------------------------------|------------------------------------------------------------|
+| Create, modify, and delete pipeline manifests       | All supported versions         | All supported versions         | Working within the same cluster Spinnaker is installed in. |
+| Create, modify, and delete application manifests    | All supported versions         | All supported versions         | Working within the same cluster Spinnaker is installed in. |
+| Define all stages supported by Spinnaker and Armory | PaCRD version 0.10.x and later | PaCRD version 0.10.x and later | Validation support does not exist for all stages.          |
 
 ### Terraform Integration
 
@@ -132,12 +138,12 @@ The Terraform Integration gives you the ability to use Terraform within your Spi
 
 The following table lists the supported Terraform versions:
 
-| Terraform Versions | Armory                 | Note |
-| ------------------ | ---------------------- | ---- |
-| 0.11.10 - 0.11.14  | All supported versions |      |
-| 0.12.0 - 0.12.24   | All supported versions |      |
-| 0.13.4 - 0.13.5   | 2.24.0 or later |      |
-| 0.14.0 - 0.14.2   | 2.24.0 or later |      |
+| Terraform Versions | Managed                | Self-hosted            | Note |
+|--------------------|------------------------|------------------------|------|
+| 0.11.10 - 0.11.14  | All supported versions | All supported versions |      |
+| 0.12.0 - 0.12.24   | All supported versions | All supported versions |      |
+| 0.13.4 - 0.13.5    | 2.24.0 or later        | 2.24.0 or later        |      |
+| 0.14.0 - 0.14.2    | 2.24.0 or later        | 2.24.0 or later        |      |
 
 Although other Terraform versions may be usable with Armory and the Terraform Integration, only the versions listed here are supported.
 
@@ -145,10 +151,10 @@ Although other Terraform versions may be usable with Armory and the Terraform In
 
 The following table lists the Terraform Integration features and their supported versions:
 
-| Feature                                                                                        | Armory                 | Notes |
-| ---------------------------------------------------------------------------------------------- | ---------------------- | ----- |
-| [Base Terraform Integration]({{< ref "terraform-enable-integration" >}})                       | All supported versions |       |
-| [Named Profiles with authorization]({{< ref "terraform-enable-integration#named-profiles" >}}) | All supported versions          |       |
+| Feature                                                                                        | Managed | Self-hosted                 | Notes |
+| ---------------------------------------------------------------------------------------------- | - | ---------------------- | ----- |
+| [Base Terraform Integration]({{< ref "terraform-enable-integration" >}})                       | All supported versions | All supported versions |       |
+| [Named Profiles with authorization]({{< ref "terraform-enable-integration#named-profiles" >}}) | All supported versions | All supported versions          |       |
 
 
 ## Authentication
@@ -157,13 +163,13 @@ The following table lists the Terraform Integration features and their supported
 
 The following table lists the supported authentication protocols:
 
-| Identity provider     | Armory                 | Note                                                                                                     |
-| --------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------- |
-| None                  | All supported versions | We highly recommend having Spinnaker only accessible through a VPN if this is turned on.                     |
-| SAML                  | All supported versions |                                                                                                          |
-| OAuth 2.0/OIDC        | All supported versions | You can use any OAuth 2.0 provider such as Auth0, Azure, GitHub, Google, Okta, OneLogin, or Oracle Cloud. |
-| LDAP/Active Directory | All supported versions |                                                                                                          |
-| x509                  | All supported versions |                                                                                                          |
+| Identity provider     | Managed | Self-hosted                 | Note                                                                                        |
+|-----------------------|-| -----------------------|---------------------------------------------------------------------------------------------|
+| None                  | All supported versions | All supported versions | We highly recommend having Spinnaker only accessible through a VPN if this is turned on.    |
+| SAML                  | All supported versions | All supported versions |                                                                                             |
+| OAuth 2.0/OIDC        | All supported versions | All supported versions | You can use any OAuth 2.0 provider such as Auth0, Azure, GitHub, Google, Okta, or OneLogin. |
+| LDAP/Active Directory | All supported versions | All supported versions |                                                                                             |
+| x509                  | All supported versions | All supported versions |                                                                                             |
 
 ## Authorization
 

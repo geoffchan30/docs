@@ -151,10 +151,10 @@ Although other Terraform versions may be usable with Armory and the Terraform In
 
 The following table lists the Terraform Integration features and their supported versions:
 
-| Feature                                                                                        | Managed | Self-hosted                 | Notes |
-| ---------------------------------------------------------------------------------------------- | - | ---------------------- | ----- |
+| Feature                                                                                        | Managed                | Self-hosted            | Notes |
+|------------------------------------------------------------------------------------------------|------------------------|------------------------|-------|
 | [Base Terraform Integration]({{< ref "terraform-enable-integration" >}})                       | All supported versions | All supported versions |       |
-| [Named Profiles with authorization]({{< ref "terraform-enable-integration#named-profiles" >}}) | All supported versions | All supported versions          |       |
+| [Named Profiles with authorization]({{< ref "terraform-enable-integration#named-profiles" >}}) | All supported versions | All supported versions |       |
 
 
 ## Authentication
@@ -165,7 +165,7 @@ The following table lists the supported authentication protocols:
 
 | Identity provider     | Managed | Self-hosted                 | Note                                                                                        |
 |-----------------------|-| -----------------------|---------------------------------------------------------------------------------------------|
-| None                  | All supported versions | All supported versions | We highly recommend having Spinnaker only accessible through a VPN if this is turned on.    |
+| None                  | All supported versions | All supported versions | Armory highly recommends having Spinnaker only accessible through a VPN if this is turned on.    |
 | SAML                  | All supported versions | All supported versions |                                                                                             |
 | OAuth 2.0/OIDC        | All supported versions | All supported versions | You can use any OAuth 2.0 provider such as Auth0, Azure, GitHub, Google, Okta, or OneLogin. |
 | LDAP/Active Directory | All supported versions | All supported versions |                                                                                             |
@@ -177,14 +177,14 @@ The following table lists the supported authentication protocols:
 
 The following table lists the supported authorization methods:
 
-| Provider              | Armory                 | Note                                                                                 |
-| --------------------- | ---------------------- | ------------------------------------------------------------------------------------ |
-| None                  | All supported versions | We highly recommend having Spinnaker only accessible through a VPN if this is turned on. |
-| GitHub Teams          | All supported versions | Roles from GitHub are mapped to the Teams under a specific GitHub organization.      |
-| Google Groups         | All supported versions |                                                                                      |
-| LDAP/Active Directory | All supported versions |                                                                                      |
-| OAuth 2.0/OIDC        | All supported versions | Requires the provider to include groups in claims or be a supported third party integration.                                                                                     |
-| SAML                  | All supported versions |                                                                                      |
+| Provider              | Managed                | Self-hosted            | Note                                                                                          |
+|-----------------------|------------------------|------------------------|-----------------------------------------------------------------------------------------------|
+| None                  | All supported versions | All supported versions | Armory highly recommends having Spinnaker only accessible through a VPN if this is turned on. |
+| GitHub Teams          | All supported versions | All supported versions | Roles from GitHub are mapped to the Teams under a specific GitHub organization.               |
+| Google Groups         | All supported versions | All supported versions |                                                                                               |
+| LDAP/Active Directory | All supported versions | All supported versions |                                                                                               |
+| OAuth 2.0/OIDC        | All supported versions | All supported versions | Requires the provider to include groups in claims or be a supported third party integration.  |
+| SAML                  | All supported versions | All supported versions |                                                                                               |
 
 ## Baking machine images
 
@@ -192,11 +192,11 @@ The following table lists the supported authorization methods:
 
 The following table lists the supported image bakeries:
 
-| Provider | Armory                 | Notes                      |
-| -------- | ---------------------- | -------------------------- |
-| AWS      | All supported versions |                            |
-| GCE      | All supported versions |                            |
-| Packer   | All supported versions | The following lists the included Packer versions: <ul><li> Armory 2.22.x includes Packer 1.4.4</li><li>Armory 2.23.x and 2.24.x include Packer 1.6.4</li></ul> |
+| Provider | Managed                | Self-hosted            | Notes                                                                                                                                                          |
+|----------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AWS      | All supported versions | All supported versions |                                                                                                                                                                |
+| GCE      | All supported versions | All supported versions |                                                                                                                                                                |
+| Packer   | All supported versions | All supported versions | The following lists the included Packer versions: <ul><li> Armory 2.22.x includes Packer 1.4.4</li><li>Armory 2.23.x and 2.24.x include Packer 1.6.4</li></ul> |
 
 ## Baking Kubernetes manifests
 
@@ -204,11 +204,11 @@ The following table lists the supported image bakeries:
 
 The following table lists the supported manifest templating engines:
 
-| Provider  | Armory                 | Notes                                |
-| --------- | ---------------------- | ------------------------------------ |
-| Helm 2    | All supported versions |                                      |
-| Helm 3    | 2.19.x or later        |                                      |
-| Kustomize | All supported versions | Kustomize version installed is 3.8.1 |
+| Provider  | Managed | Self-hosted                 | Notes                                |
+| --------- | - | ---------------------- | ------------------------------------ |
+| Helm 2    | All supported versions | All supported versions |                                      |
+| Helm 3    | All supported versions | All supported versions        |                                      |
+| Kustomize | All supported versions | All supported versions | Kustomize version installed is 3.8.1 |
 
 ## Browsers
 
@@ -220,10 +220,10 @@ Spinnaker's UI (Deck) works with most modern browsers.
 
 The following table lists the supported CI systems:
 
-| Provider           | Version                | Armory                 | Note                |
-| ------------------ | ---------------------- | ---------------------- | ------------------- |
-| GitHub Actions     | n/a                    | All supported versions | Webhook integration |
-| Jenkins            | All supported versions | All supported versions |                     |
+| Provider       | Version                | Managed                | Self-hosted            | Note                |
+|----------------|------------------------|------------------------|------------------------|---------------------|
+| GitHub Actions | n/a                    | All supported versions | All supported versions | Webhook integration |
+| Jenkins        | All supported versions | All supported versions | All supported versions |                     |
 
 ## Deployment targets
 
@@ -256,26 +256,25 @@ Here's a [great chart by Google](https://cloud.google.com/docs/compare/aws#servi
 {{</ caas-gce-deploy-strategies.inline >}}
 -->
 
-| Provider                    | Deployment strategies                      | Armory Versions        | Notes |
-| --------------------------- | ------------------------------------------ | ---------------------- | ----- |
-| Amazon AWS EC2              | {{< caas-ec2-deploy-strategies.inline />}} | All supported versions |       |
-
+| Provider       | Deployment strategies                      | Managed                | Self-hosted            | Notes |
+|----------------|--------------------------------------------|------------------------|------------------------|-------|
+| Amazon AWS EC2 | {{< caas-ec2-deploy-strategies.inline />}} | All supported versions | All supported versions |       |
 
 
 ### Container as a Service Platforms
 
 These are providers that are manifest based, so Armory applies the manifest and leaves the rollout logic to the platform itself.
 
-| Provider           | Supported Versions | Armory Versions        | Notes |
-| -----------------  | ------------------ | ---------------------- | ----- |
-| Kubernetes         | 1.16 or later       | All supported versions |       |
-| Amazon AWS EKS     | All versions       | All supported versions |       |
-| Google GKE         | All versions       | All supported versions |       |
+| Provider       | Versions      | Managed                | Self-hosted            | Notes |
+|----------------|---------------|------------------------|------------------------|-------|
+| Kubernetes     | 1.16 or later | All supported versions | All supported versions |       |
+| Amazon AWS EKS | All versions  | All supported versions | All supported versions |       |
+| Google GKE     | All versions  | All supported versions | All supported versions |       |
 
 
-| Provider       | Deployment strategies                      | Armory Versions        | Notes |
-| -------------- | ------------------------------------------ | ---------------------- | ----- |
-| Amazon AWS ECS | <ul><li>Red/Black aka Blue/Green</li></ul> | All supported versions |       |
+| Provider       | Deployment strategies                      | Managed                | Self-hosted            | Notes |
+|----------------|--------------------------------------------|------------------------|------------------------|-------|
+| Amazon AWS ECS | <ul><li>Red/Black aka Blue/Green</li></ul> | All supported versions | All supported versions |       |
 
 
 
@@ -293,12 +292,10 @@ These are providers that are manifest based, so Armory applies the manifest and 
 {{</ caas-cf-deploy-strategies.inline >}}
 -->
 
-| Provider                | Supported Versions                   | Deployment strategies                      | Armory Versions        | Notes                    |
-| ----------------------- | ------------------------------------ | ------------------------------------------ | ---------------------- | ------------------------ |
-| Google Cloud App Engine |                                      | <ul><li>Custom</li></ul>                   | All supported versions |                          |
-| Cloud Foundry           | CC API Version: 2.103.0+ and 3.38.0+ | {{< caas-cf-deploy-strategies.inline />}}  | All supported versions | Buildpacks Supported: <br>    Java, others coming soon! |
-
-
+| Provider                | Supported Versions                   | Deployment strategies                     | Managed                | Self-hosted            | Notes                                                   |
+|-------------------------|--------------------------------------|-------------------------------------------|------------------------|------------------------|---------------------------------------------------------|
+| Google Cloud App Engine |                                      | <ul><li>Custom</li></ul>                  | All supported versions | All supported versions |                                                         |
+| Cloud Foundry           | CC API Version: 2.103.0+ and 3.38.0+ | {{< caas-cf-deploy-strategies.inline />}} | All supported versions | All supported versions | Buildpacks Supported: <br>    Java, others coming soon! |
 
 ### Serverless
 
@@ -316,9 +313,9 @@ You write the function and use Armory to manage the rollout of iterative version
 -->
 
 
-| Provider          | Deployment strategies                        | Armory Versions        | Notes |
-| ----------------- | -------------------------------------------- | ---------------------- | ----- |
-| Amazon AWS Lambda | {{< aws-lambda-deploy-strategies.inline />}} | All supported versions |       |
+| Provider          | Deployment strategies                        | Managed                | Self-hosted            | Notes |
+|-------------------|----------------------------------------------|------------------------|------------------------|-------|
+| Amazon AWS Lambda | {{< aws-lambda-deploy-strategies.inline />}} | All supported versions | All supported versions |       |
 
 
 
